@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, file_names
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:tora/PourHomepage/Accail/ItemPost.dart';
 
 class AccaillProduit extends StatefulWidget {
-  const AccaillProduit({super.key});
+  final String photoProfil;
+  const AccaillProduit({super.key, required this.photoProfil});
   @override
   State<AccaillProduit> createState() => _AccaillProduitState();
 }
@@ -49,7 +50,7 @@ class _AccaillProduitState extends State<AccaillProduit>
               child: TabBarView(
                 controller: _controller,
                 children: [
-                 ItemPost()
+                 ItemPost(photoProfil:widget.photoProfil,)
                 ],
               ),
             ),

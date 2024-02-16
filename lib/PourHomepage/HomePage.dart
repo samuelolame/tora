@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:tora/PourHomepage/Accail/AccailProduit.dart';
+import 'package:tora/PourHomepage/Message/GestionDeMessage.dart';
+import 'package:tora/PourHomepage/Profil/UseProfil.dart';
 import 'package:tora/PourHomepage/Rechercher/RechercheProduit.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -14,15 +16,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int indexNavigation = 0;
   final tabs = [
-    const Center(child:AccaillProduit()),
+    const Center(child: AccaillProduit(photoProfil:"assets/image/images-6.jpg",)),
     const Center(child: RechercheProduit()),
-    const Center(child: Text("It's me")),
-    const Center(child: Text("ce moi")),
+    const Center(child: GestionDeMessage()),
+    const Center(child: UseProfil(photoProfil:"assets/image/images-6.jpg"),),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
       body: tabs[indexNavigation],
       bottomNavigationBar: navigationBar(),
     );
@@ -46,25 +48,22 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(
               Icons.home,
             ),
-            tooltip: "Yunbani",
             label: "accueil"),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
             ),
-            tooltip: "Discover",
             label: "Recherche"),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.message,
             ),
-            tooltip: "message",
             label: "message"),
         BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
+            icon: CircleAvatar(
+              radius:18,
+              backgroundImage: AssetImage("assets/image/images-6.jpg"),
             ),
-            tooltip: "Profil",
             label: "profil"),
       ],
       onTap: (index) {
